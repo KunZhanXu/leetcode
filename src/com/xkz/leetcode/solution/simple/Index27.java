@@ -18,6 +18,7 @@ package com.xkz.leetcode.solution.simple;
         print(nums[i]);
     }
 
+
     示例 1：
     输入：nums = [3,2,2,3], val = 3
     输出：2, nums = [2,2]
