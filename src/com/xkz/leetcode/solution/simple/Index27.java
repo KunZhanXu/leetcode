@@ -1,4 +1,4 @@
-package com.xkz.leetcode.solution;
+package com.xkz.leetcode.solution.simple;
 /*
     27.移除元素
 
