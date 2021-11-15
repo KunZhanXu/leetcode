@@ -35,7 +35,7 @@ package com.xkz.leetcode.solution.simple;
 public class Index53 {
 
     public static void main(String[] args) {
-        System.out.println(searchInsert1(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
+        System.out.println(searchInsert3(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
     }
 
     /**
@@ -51,6 +51,53 @@ public class Index53 {
             max_num = Math.max(cur_num,max_num);
         }
         return max_num;
+    }
+
+    /**
+     * 暴力解法
+     * @param nums
+     * @return
+     */
+    public static int searchInsert2(int[] nums) {
+       int min_num = Integer.MIN_VALUE;
+       int size = nums.length;
+       for (int i=0; i<size; i++){
+           int sum = 0;
+           for(int j=i; j<size; j++){
+               sum += nums[j];
+               if (sum > min_num){
+                   min_num = sum;
+               }
+           }
+       }
+       return min_num;
+    }
+
+    /**
+     * 动态规划
+     * @param nums
+     * @return
+     */
+    public static int searchInsert3(int[] nums) {
+        int length = nums.length;
+        int[] dp = new int[length];
+        dp[0] = nums[0];
+        int max_result = dp[0];
+        for (int i=1; i<length; i++){
+            dp[i] = Math.max(dp[i-1]+nums[i],nums[i]);
+            max_result = Math.max(max_result,dp[i]);
+        }
+        return max_result;
+    }
+
+
+    /**
+     * 分治法，后期完成
+     * @param nums
+     * @return
+     */
+    public static int searchInsert4(int[] nums) {
+        return 1;
     }
 
 
